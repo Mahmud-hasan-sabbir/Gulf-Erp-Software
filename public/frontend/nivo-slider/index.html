@@ -1,0 +1,43 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<html lang="en">
+
+<head>
+    <title>jQuery Nivo Slider Demo</title>
+
+    <link rel="stylesheet" href="themes/default/default.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="themes/light/light.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="themes/dark/dark.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="themes/bar/bar.css" type="text/css" media="screen"/>
+
+    <link rel="stylesheet" href="themes/nivo-slider.css" type="text/css" media="screen"/>
+</head>
+
+<body>
+    <div class="slider-wrapper theme-bar">
+        <div id="slider" class="nivoSlider"> 
+            <div style="position: relative;">
+                <img src="themes/images/toystory.jpg" data-thumb="themes/images/toystory.jpg" alt="" />
+            </div>
+            <div>
+                <img src="themes/images/up.jpg" data-thumb="themes/images/up.jpg" alt="" title="This is an example of a caption" />
+            </div>
+            <div>
+                <img src="themes/images/walle.jpg" data-thumb="themes/images/walle.jpg" alt="" data-transition="slideInLeft" /> 
+            </div>
+            <div>
+                <img src="themes/images/nemo.jpg" data-thumb="themes/images/nemo.jpg" alt="" title="#htmlcaption" /> 
+            </div>
+        </div>
+        <div id="htmlcaption" class="nivo-html-caption"> <strong>This</strong> is an example of a <em>HTML</em> caption with <a href="#">a link</a>. </div>
+    </div>
+
+    <script type="text/javascript" src="themes/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="themes/jquery.nivo.slider.js"></script>
+    <script type="text/javascript">
+        $(window).load(function () {
+            $('#slider').nivoSlider();
+        });
+    </script>
+</body>
+</html>

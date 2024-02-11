@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Birth Certificate Validation</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/imask/6.0.7/imask.min.js"></script>
+</head>
+<body>
+    <section>
+        <form id="validationForm" action="/target" method="post">
+            <label class="label" id="InputLabel" for="birth_certificate_no">Enter your Birth Certificate Number</label>
+            <input id="birth_certificate_no" type="text" name="birth_certificate_no" placeholder="XX-XXXXXX-XXXX-XX-XXXXX" autocomplete="off" autofocus title="Birth Certificate Number Input"/>
+            <input id="nid_no" type="text" name="nid_no" placeholder="XX-XXXXXX-XXXX-XX-XXXXX" autocomplete="off" autofocus title="NID Number Input"/>
+            <input id="driving_license" type="text" name="driving_license" placeholder="XX-XXXXXX-XXXX-XX-XXXXX" autocomplete="off" autofocus title="Driving License Number Input"/>
+            <button type="submit" id="button" value="confirm" tabindex="2" aria-label="Submit" disabled>Submit</button>
+        </form>
+    </section>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            const inputNID = $("#nid_no");
+            const inputBCN = $("#birth_certificate_no");
+            const inputDLN = $("#driving_license");
+
+            const maskNID = new IMask(inputNID[0], { mask: "0000000000000" });
+            const maskBCN = new IMask(inputBCN[0], { mask: "00000000000000000" });
+
+            const maskDLN = new IMask(inputDLN[0], {
+                mask: 'SSSSSSSSSSSSSSS',
+                blocks: {
+                    S: {
+                        mask: /^[A-Za-z0-9]$/i,
+                        uppercase: true, // Convert input characters to uppercase
+                    },
+                },
+            });
+            inputDLN.on("input", function() {
+                inputDLN.val(inputDLN.val().toUpperCase());
+            });
+        });
+    </script>
+</body>
+</html>

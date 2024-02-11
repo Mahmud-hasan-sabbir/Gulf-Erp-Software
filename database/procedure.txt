@@ -1,0 +1,24 @@
+public function up(){
+    $procedure ="DROP PROCEDURE IF EXISTS `get_users_by_id`;
+        CREATE PROCEDURE `get_users_by_id` (IN inx int)
+        BEGIN
+            SELECT * FROM  users where id = inx;
+        END;
+    ";
+    \DB::unprepared($procedure);
+}
+
+
+----------------------------------------------------------
+{{ $data->links() }}
+{{ $data->links('vendor.pagination.custom') }}
+{{ $data->links('vendor.pagination.bootstrap-5') }}
+-----------------------------------------------------------
+function dateFix(){
+    $("#start_date").datepicker({
+        "dateFormat": "yy-mm-dd"
+    });
+    $("#end_date").datepicker({
+        "dateFormat": "yy-mm-dd"
+    });
+}
